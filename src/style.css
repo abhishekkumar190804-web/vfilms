@@ -1,0 +1,19 @@
+@import "./assets/fonts/fonts.css";
+@import "tailwindcss";
+
+::selection {
+  background: #F15D2B;
+  color: #fff;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
