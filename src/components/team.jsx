@@ -4,47 +4,54 @@ import {
   teamImg,
   topArrowIcon,
 } from '../assets';
+import Button from './ui/button';
 
-const Team = ({ className }) => (
-  <div className={className}>
-    <div className="relative font-[Island_Moments] text-3xl text-[#103255]">
-      <div className="absolute object-contain top-[14vh] right-[370px]">
-        <div className="relative">
-          <p className="absolute bottom-0 -left-20 w-fit ">Film Makers</p>
-        </div>
-        <img src={topArrowIcon} alt="arrow" />
+const Team = () => (
+  <div className="flex flex-col items-center mt-20 md:mt-40 lg:m-0 lg:translate-y-1/2">
+    <div className="relative font-[Island_Moments] text-[#103255]">
+      <div className="absolute -top-[20vw] left-[7vw] md:-left-[1vw] lg:-top-[13vw] lg:-left-[2vw]">
+        <p className="mt-1 text-[5vw] lg:text-[3.2vw] -translate-x-1/2">
+          Film Makers
+        </p>
+        <img
+          src={topArrowIcon}
+          alt="top arrow"
+          className="w-[16vw] lg:w-[12vw]"
+        />
       </div>
-      <div className="absolute object-contain top-[300px] right-[570px]">
-        <img src={leftArrowIcon} alt="arrow" />
-        <div className="relative">
-          <p className="absolute -bottom-10 -left-[130px] w-fit ">
+      <div className="absolute top-[10vw] -left-[19vw] md:top-[4vw] lg:-left-[16vw] lg:top-[3vw] rotate-12">
+        <div>
+          <img
+            src={leftArrowIcon}
+            alt="left arrow"
+            className="w-[16vw] lg:w-[12vw]"
+          />
+          <p className="mt-1 text-[5vw] lg:text-[3.2vw] -translate-x-1/4 lg:-translate-x-1/2 -rotate-12">
             Branding Experts
           </p>
         </div>
       </div>
-      <div className="absolute object-contain top-[130px] right-[60px]">
-        <img src={rightArrowIcon} alt="arrow" />
-        <div className="relative">
-          <p className="absolute bottom-[150px] -right-[100px] w-fit ">
-            Art Curators
-          </p>
+      <div className="absolute -top-[8vw] md:-top-[11vw] lg:-top-[4vw] -right-[22vw] lg:-right-[15vw]">
+        <div>
+          <p className="mt-1 text-[5vw] lg:text-[3.2vw]">Art Curators</p>
+          <img
+            src={rightArrowIcon}
+            alt="right arrow"
+            className="w-[8vw] lg:w-[5vw]"
+          />
         </div>
       </div>
-      <div className="relative">
-        <img
-          src={teamImg}
-          alt="team"
-          className="absolute w-90 top-50 right-44 object-contain"
-        />
-        <div className="absolute top-[450px] right-20 text-center">
-          <p className="font-[Halant] text-2xl">
-            Take a closer look at the stories V bring to life.
-          </p>
-          <button className="mt-10 bg-[#F15D2B] font-[Instrument_Sans] text-base text-[#FFFFFF] rounded-3xl  px-4 py-3 shadow-[0_4px_12px_0_#00000033] cursor-pointer">
-            View Portfolio
-          </button>
-        </div>
-      </div>
+      <img
+        src={teamImg}
+        alt="team"
+        className="w-[50vw] md:w-[30vw] lg:w-[20vw] object-contain"
+      />
+    </div>
+    <div className="text-center mt-15 md:mt-25">
+      <p className="font-[Halant] text-[3vw] text-[#252729] md:text-[2vw]">
+        Take a closer look at the stories V bring to life.
+      </p>
+      <Button className="mt-5 font-[Instrument_Sans]">View Portfolio</Button>
     </div>
   </div>
 );

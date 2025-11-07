@@ -1,6 +1,7 @@
 import React from 'react';
 import { closeIcon, logo, mailIcon, menuIcon } from '../assets';
 import { useLocation, useNavigate } from 'react-router';
+import Button from './ui/button';
 
 const Navbar = () => {
   const [IsActive, setIsActive] = React.useState(false);
@@ -20,7 +21,9 @@ const Navbar = () => {
       <img
         src={logo}
         alt="VFilms"
-        className={`h-10 select-none cursor-pointer motion-safe:transition-opacity motion-reduce:transition-none motion-safe:duration-500 motion-reduce:duration-[0ms] ${!isHome?"opacity-100":"opacity-0"}`}
+        className={`h-10 select-none cursor-pointer motion-safe:transition-opacity motion-reduce:transition-none motion-safe:duration-500 motion-reduce:duration-[0ms] ${
+          !isHome ? 'opacity-100' : 'opacity-0'
+        }`}
         onClick={() => navigate('/')}
       />
 
@@ -80,18 +83,10 @@ const Navbar = () => {
         </li>
 
         <li>
-          <button
-            className="
-              bg-[#F15D2B] text-[#FFFFFF]
-              rounded-3xl flex gap-2 items-center
-              px-4 py-3
-              shadow-[0_4px_12px_0_#00000033]
-              cursor-pointer
-            "
-          >
+          <Button className="flex gap-2 items-center">
             Let’s Talk
             <img src={mailIcon} alt="mailIcon" className="w-5 h-4" />
-          </button>
+          </Button>
         </li>
 
         <li>
