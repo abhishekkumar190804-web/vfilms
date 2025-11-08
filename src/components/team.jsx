@@ -19,7 +19,7 @@ const Team = () => (
           className="w-[16vw] lg:w-[12vw]"
         />
       </div>
-      <div className="absolute top-[10vw] -left-[19vw] md:top-[4vw] lg:-left-[16vw] lg:top-[3vw] rotate-12">
+      <div className="absolute top-[10vw] -left-[19vw] md:top-[4vw] lg:-left-[16vw] lg:top-[3vw] lg:rotate-12">
         <div>
           <img
             src={leftArrowIcon}

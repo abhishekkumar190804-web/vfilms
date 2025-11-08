@@ -8,30 +8,38 @@ const Navbar = () => {
   const { pathname } = useLocation();
   const isHome = React.useMemo(() => pathname === '/', [pathname]);
   const navigate = useNavigate();
+  const handleClick = (dir) => {
+    setIsActive(false)
+    navigate(dir)
+  }
 
   return (
     <header
       className={`
-        fixed mt-4 w-full h-14 px-6 z-20
+        fixed rounded-s-full m-4 w-full h-14 px-6 z-20
         flex items-center ${isHome ? 'justify-end' : 'justify-between'}
+        motion-safe:transition-all motion-reduce:transition-none
+        motion-safe:duration-600 motion-reduce:duration-[0ms]
         bg-[#FFFBFB59]
+        ${IsActive && 'md:backdrop-blur-sm'}
       `}
     >
       {/* Logo */}
       <img
         src={logo}
         alt="VFilms"
-        className={`h-10 select-none cursor-pointer motion-safe:transition-opacity motion-reduce:transition-none motion-safe:duration-500 motion-reduce:duration-[0ms] ${
+        className={`h-10 select-none cursor-pointer motion-safe:transition-opacity motion-reduce:transition-none motion-safe:duration-300 motion-reduce:duration-[0ms] ${
           !isHome ? 'opacity-100' : 'opacity-0'
         }`}
-        onClick={() => navigate('/')}
+        onClick={() => handleClick('/')}
       />
 
       {/* Menu Button */}
       <button
         className={`
           cursor-pointer select-none
-          transition-opacity duration-600
+          motion-safe:transition-opacity motion-reduce:transition-none
+           motion-safe:duration-200 motion-reduce:duration-[0ms]
           ${IsActive ? 'opacity-0' : 'opacity-100'}
         `}
         onClick={() => setIsActive(true)}
@@ -48,36 +56,34 @@ const Navbar = () => {
           h-screen w-full
           transition-transform duration-500
           backdrop-blur-sm
-          bg-[#f15c2b28]
-          
+
           md:bg-transparent
           md:flex-row md:py-0 md:top-auto md:w-auto md:h-auto
           md:backdrop-blur-none
-          
           ${IsActive ? 'translate-x-0' : 'translate-x-full z-30'}
         `}
       >
         <li
           className="cursor-pointer select-none"
-          onClick={() => navigate('/')}
+          onClick={() => handleClick('/')}
         >
           Services
         </li>
         <li
           className="cursor-pointer select-none"
-          onClick={() => navigate('teams')}
+          onClick={() => handleClick('teams')}
         >
           Their Stories
         </li>
         <li
           className="cursor-pointer select-none"
-          onClick={() => navigate('/about')}
+          onClick={() => handleClick('/about')}
         >
           Our Story
         </li>
         <li
           className="cursor-pointer select-none"
-          onClick={() => navigate('/')}
+          onClick={() => handleClick('/')}
         >
           Varnan
         </li>

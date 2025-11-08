@@ -11,6 +11,9 @@ import indiaGateImg from './indiaGate.png';
 import topArrowIcon from './arrows/top.svg';
 import leftArrowIcon from './arrows/left.svg';
 import rightArrowIcon from './arrows/right.svg';
+import circularCompanyImg from './scenery/circular-company.png';
+import circularDesignImg from './scenery/circular-design.png';
+import sceneImg from "./scenery/scene.png"
 
 export {
   logo,
@@ -26,4 +29,7 @@ export {
   leftArrowIcon,
   rightArrowIcon,
   noteImg,
+  sceneImg,
+  circularCompanyImg,
+  circularDesignImg,
 };

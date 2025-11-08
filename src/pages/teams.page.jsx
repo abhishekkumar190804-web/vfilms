@@ -3,7 +3,7 @@ import Note from '../components/note';
 import Team from '../components/team';
 const Teams = () => {
   return (
-    <div className="relative container flex flex-col items-center mt-20 lg:mt-0 lg:block lg:h-screen">
+    <section className="relative container flex flex-col items-center mt-20 lg:mt-0 lg:block lg:h-screen">
       <div className="w-full flex justify-center mb-20 lg:absolute lg:top-12 lg:right-75">
         <Note className="shadow-[0px_12px_40px_0px_#00000026] h-66 w-88 -rotate-12 z-10">
           <p className="absolute top-0 left-0 m-10 font-[Halant] text-[#0F3255] text-[0.9rem]">
@@ -25,7 +25,7 @@ const Teams = () => {
           className="h-56 md:h-80 w-auto object-contain"
         />
       </div>
-    </div>
+    </section>
   );
 };
 
