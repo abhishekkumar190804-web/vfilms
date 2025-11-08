@@ -5,8 +5,8 @@ const Teams = () => {
   return (
     <section className="relative container flex flex-col items-center mt-20 lg:mt-0 lg:block lg:h-screen">
       <div className="w-full flex justify-center mb-20 lg:absolute lg:top-12 lg:right-75">
-        <Note className="shadow-[0px_12px_40px_0px_#00000026] h-66 w-88 -rotate-12 z-10">
-          <p className="absolute top-0 left-0 m-10 font-[Halant] text-[#0F3255] text-[0.9rem]">
+        <Note className="h-fit w-[20rem] -rotate-12 z-10">
+          <p className="font-[Halant] text-[#0F3255] text-[0.9rem] p-5">
             Some craft films. Some build brands. Some curate art. We bring it
             all together - a collective of storytellers driven by one belief:
             every project deserves to be more than just a message; it should
