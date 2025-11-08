@@ -55,7 +55,7 @@ const Navbar = () => {
           font-[Instrument_Sans]
           h-screen w-full
           transition-transform duration-500
-          backdrop-blur-sm
+          backdrop-blur-sm bg-[#FFFBFB59]
 
           md:bg-transparent
           md:flex-row md:py-0 md:top-auto md:w-auto md:h-auto
@@ -65,7 +65,7 @@ const Navbar = () => {
       >
         <li
           className="cursor-pointer select-none"
-          onClick={() => handleClick('/')}
+          onClick={() => handleClick('/services')}
         >
           Services
         </li>

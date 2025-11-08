@@ -7,7 +7,7 @@ import {
 import Button from './ui/button';
 
 const Team = () => (
-  <div className="flex flex-col items-center mt-20 md:mt-40 lg:m-0 lg:translate-y-1/2">
+  <div className="flex flex-col items-center mt-20 md:mt-40 lg:m-0 lg:translate-y-1/3">
     <div className="relative font-[Island_Moments] text-[#103255]">
       <div className="absolute -top-[20vw] left-[7vw] md:-left-[1vw] lg:-top-[13vw] lg:-left-[2vw]">
         <p className="mt-1 text-[5vw] lg:text-[3.2vw] -translate-x-1/2">

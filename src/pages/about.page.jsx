@@ -1,5 +1,5 @@
 import Mountain from '../components/mountain';
-import Note from '../components/note';
+import Note from '../components/ui/note';
 
 const cards = [
   {
@@ -17,10 +17,10 @@ const cards = [
 ];
 
 const About = () => (
-  <section className="flex flex-col lg:flex-row min-h-screen conatiner overflow-hidden lg:overflow-none">
+  <section className="flex flex-col lg:flex-row max-h-screen overflow-hidden">
     {/* LEFT SIDE — Centered text */}
-    <div className="flex-1 flex flex-col items-center justify-center text-[#252729] px-6 lg:px-12 text-center">
-      <h1 className="font-[Halant] text-3xl lg:text-4xl mb-4">
+    <div className="flex-1 flex flex-col items-center justify-center text-[#252729] px-6 text-center mt-20 lg:px-12 lg:mt-0">
+      <h1 className="font-[Halant] text-3xl mb-4">
         A montage of familiar faces and names.
       </h1>
       <p className="font-[Instrument_Sans] max-w-md sm:mt-[2vh] lg:mt-[5vh]">
@@ -45,14 +45,14 @@ const About = () => (
     </div>
 
     {/* RIGHT SIDE — Text + Mountain */}
-    <div className="relative flex-1 text-[#0F3255]">
+    <div className="relative flex-1 text-[#3b4046] mt-10 lg:mt-0">
       <h1 className="font-[Island_Moments] text-3xl lg:text-5xl text-center lg:mt-20 px-6">
         Every project is more than just a brief - it’s a new chapter waiting to
         be written. Together, we've crafted tales that inspire, connect, and
         endure.
       </h1>
-      <div className="relative">
-        <div className="absolute -top-1/2 lg:top-auto lg:fixed bottom-0 right-0 lg:translate-y-1/2">
+      <div className="absolute bottom-0 right-0 w-full">
+        <div className="translate-y-1/2">
           <Mountain />
         </div>
       </div>

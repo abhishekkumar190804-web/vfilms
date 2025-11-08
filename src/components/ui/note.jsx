@@ -1,4 +1,4 @@
-import { noteImg, paperClipImg } from '../assets';
+import { noteImg, paperClipImg } from '../../assets';
 
 const Note = ({ children, className = '', clip = true }) => (
   <div

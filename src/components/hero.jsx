@@ -3,7 +3,7 @@ import Mandal from './background/mandal';
 // todo: implement container before finalising
 
 const Hero = () => (
-  <section className="flex flex-col lg:flex-row h-screen">
+  <section className="flex flex-col lg:flex-row min-h-screen overflow-hidden">
     {/* Left Side */}
     <div className="flex w-full lg:w-1/2 items-center justify-center my-10 mt-20 lg:m-0">
       <Mandal />
@@ -18,7 +18,6 @@ const Hero = () => (
         Films . Brands . Art
       </h2>
       <p className="mx-20 mb-16 md:mb-0 md:mx-14 lg:mr-48 font-[Instrument_Sans] text-center text-[#252729] motion-safe:animate-[fadeUp_1s_ease-out_forwards] motion-reduce:animate-none">
-        {' '}
         Since 2009, V’ve been telling stories - stories of people, their
         journeys, and the places that shape them. Some begin in polished
         boardrooms, others in humble village squares. But every story starts the
