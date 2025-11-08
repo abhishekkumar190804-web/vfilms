@@ -2,86 +2,104 @@ import { circularDesignImg } from '../assets';
 import HollowCircle from '../components/background/hollow';
 import Input from '../components/ui/input';
 import Button from '../components/ui/button';
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import Loader from '../components/ui/loader';
-
-// Fake API call for testing
-export const fakeApiCall = () =>
-  new Promise((resolve, reject) => {
-    setTimeout(() => {
-      Math.random() > 0.3 ? resolve('Success') : reject('Error'); // 70% chance success
-    }, 2000);
-  });
+import axios from 'axios';
+const API_CONTACT = import.meta.env.VITE_API_CONTACT;
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = React.useState({
     name: '',
     email: '',
     phone: '',
     message: '',
   });
 
-  const [status, setStatus] = useState('idle');
+  const [status, setStatus] = React.useState('idle');
+  const [errors, setErrors] = React.useState({}); // store per-field errors
 
   const inputRefs = {
-    name: useRef(),
-    email: useRef(),
-    phone: useRef(),
-    message: useRef(),
+    name: React.useRef(),
+    email: React.useRef(),
+    phone: React.useRef(),
+    message: React.useRef(),
   };
 
-  const validate = () => {
-    const newErrors = {};
-    if (!formData.name) newErrors.name = true;
-    if (!formData.email || !/\S+@\S+\.\S+/.test(formData.email))
-      newErrors.email = true;
-    if (!formData.phone || !/^\d+$/.test(formData.phone))
-      newErrors.phone = true;
-    if (!formData.message) newErrors.message = true;
+  // Validation rules
+  const validators = {
+    name: (val) => val.trim() !== '',
+    email: (val) => /\S+@\S+\.\S+/.test(val),
+    phone: (val) => /^\d+$/.test(val),
+    message: (val) => val.trim() !== '',
+  };
 
-    // Shake invalid inputs and focus first invalid
-    let firstErrorField = null;
-    Object.keys(newErrors).forEach((field) => {
-      const el = inputRefs[field].current;
-      if (el) {
+  // Validate single field
+  const validateField = React.useCallback(
+    (field) => {
+      const isValid = validators[field](formData[field]);
+      setErrors((prev) => ({ ...prev, [field]: !isValid }));
+
+      // Shake animation on invalid
+      if (!isValid && inputRefs[field].current) {
+        const el = inputRefs[field].current;
         el.classList.add('animate-shake');
         setTimeout(() => el.classList.remove('animate-shake'), 500);
-        if (!firstErrorField) firstErrorField = el;
+        if (navigator.vibrate) navigator.vibrate(100);
       }
+
+      return isValid;
+    },
+    [formData],
+  );
+
+  // Validate all fields on submit
+  const validateAll = () => {
+    let isFormValid = true;
+    let firstInvalidField = null;
+
+    Object.keys(formData).forEach((field) => {
+      const isValid = validateField(field);
+      if (!isValid && !firstInvalidField)
+        firstInvalidField = inputRefs[field].current;
+      if (!isValid) isFormValid = false;
     });
 
-    if (firstErrorField) firstErrorField.focus();
-    if (Object.keys(newErrors).length && navigator.vibrate)
-      navigator.vibrate(200);
+    // Focus the first invalid input
+    if (firstInvalidField) firstInvalidField.focus();
 
-    return Object.keys(newErrors).length === 0;
+    return isFormValid;
   };
 
-  const handleChange = (e) => {
+  // Handle input changes
+  const handleChange = React.useCallback((e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       [name]: name === 'phone' ? value.replace(/\D/g, '') : value,
-    });
-  };
+    }));
+  }, []);
 
+  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validate()) return;
+    if (!validateAll()) return;
 
     setStatus('loading');
     try {
-      await fakeApiCall();
+      await axios.post(
+        API_CONTACT,
+        formData,
+      );
       setStatus('success');
-      // Optionally clear form: setFormData({ name: '', email: '', phone: '', message: '' });
-    } catch {
+      setFormData({ name: '', email: '', phone: '', message: '' });
+      setErrors({});
+    } catch (err) {
       setStatus('error');
     } finally {
-      setTimeout(() => setStatus('idle'), 2000); // reset to idle after 2s
+      setTimeout(() => setStatus('idle'), 2000);
     }
   };
 
-  // Determine button content and classes based on status
   const getButtonContent = () => {
     switch (status) {
       case 'loading':
@@ -105,7 +123,7 @@ const Contact = () => {
   `;
 
   return (
-    <section className="relative w-screen flex justify-center flex-col overflow-hidden lg:flex-row">
+    <section className="relative w-screen font-[Instrument_Sans] flex justify-center flex-col overflow-hidden lg:flex-row">
       <div className="flex-1 flex justify-center items-center z-2 mt-30 lg:mt-0">
         <p className="w-[80%] md:w-[60%]">
           Whether you have an idea, a question, or simply want to explore how V
@@ -116,7 +134,7 @@ const Contact = () => {
         </p>
       </div>
 
-      <div className="flex-1 flex items-center justify-center lg:justify-start font-[Instrument_Sans] text-[#252729] relative z-2 my-10 lg:mb-0">
+      <div className="flex-1 flex items-center justify-center lg:justify-start text-[#252729] relative z-2 my-10 lg:mb-0">
         <form
           onSubmit={handleSubmit}
           className="grid gap-20 lg:gap-10 text-center w-[80%] md:w-[60%]"
@@ -129,39 +147,20 @@ const Contact = () => {
           </div>
 
           <div className="flex flex-col items-center gap-3">
-            <Input
-              ref={inputRefs.name}
-              name="name"
-              type="text"
-              placeholder="Your name*"
-              value={formData.name}
-              onChange={handleChange}
-            />
-            <Input
-              ref={inputRefs.email}
-              name="email"
-              type="text"
-              placeholder="Your Email*"
-              value={formData.email}
-              onChange={handleChange}
-            />
-            <Input
-              ref={inputRefs.phone}
-              name="phone"
-              type="text"
-              placeholder="Your Phone*"
-              value={formData.phone}
-              onChange={handleChange}
-            />
-            <Input
-              ref={inputRefs.message}
-              name="message"
-              type="text-area"
-              placeholder="Your message*"
-              rows={4}
-              value={formData.message}
-              onChange={handleChange}
-            />
+            {['name', 'email', 'phone', 'message'].map((field) => (
+              <Input
+                key={field}
+                ref={inputRefs[field]}
+                name={field}
+                type={field === 'message' ? 'text-area' : 'text'}
+                placeholder={`Your ${field}*`}
+                value={formData[field]}
+                onChange={handleChange}
+                onBlur={() => validateField(field)}
+                rows={field === 'message' ? 4 : undefined}
+                className={errors[field] ? 'border-red-500' : ''}
+              />
+            ))}
 
             <Button className={buttonClasses} disabled={status !== 'idle'}>
               {getButtonContent()}
