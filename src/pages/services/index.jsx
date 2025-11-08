@@ -8,7 +8,7 @@ const Services = () => {
 
   return (
     <section className="relative w-full flex items-cente flex-col items-center justify-center font-[Halant] overflow-x-hidden">
-      <h1 className="text-[3vw] w-[67vw] text-[#252729] text-center  mt-30 md:mt-0 md:w-[50vw] md:text-[2vw]">
+      <h1 className="text-[5vw] w-full text-[#252729] text-center mt-30 text-bold md:text-normal md:mt-0 md:w-[50vw] md:text-[2vw]">
         The storyboard reveals the breadth of our craft.
         <img src={lineImg} alt="underline" className="w-full object-contain" />
       </h1>

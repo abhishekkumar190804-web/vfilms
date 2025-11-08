@@ -81,7 +81,7 @@ const Navbar = () => {
         </li>
         <li
           className="cursor-pointer select-none"
-          onClick={() => handleClick('teams')}
+          onClick={() => handleClick('/teams')}
         >
           Their Stories
         </li>
@@ -99,7 +99,7 @@ const Navbar = () => {
         </li>
 
         <li>
-          <Button className="flex gap-2 items-center">
+          <Button className="flex gap-2 items-center" onClick={()=>handleClick('/contact')}>
             Let’s Talk
             <img src={mailIcon} alt="mailIcon" className="w-5 h-4" />
           </Button>

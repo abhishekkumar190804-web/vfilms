@@ -33,7 +33,7 @@ const About = () => (
 
     {/* RIGHT SIDE — Text + Mountain */}
     <div className="relative flex-1 text-[#3b4046] mt-10 lg:mt-0">
-      <h1 className="font-[Island_Moments] text-3xl lg:text-5xl text-center lg:mt-20 px-6">
+      <h1 className="font-[Island_Moments] text-3xl lg:text-5xl text-center lg:mt-20 px-6 relative z-2">
         Every project is more than just a brief - it’s a new chapter waiting to
         be written. Together, we've crafted tales that inspire, connect, and
         endure.

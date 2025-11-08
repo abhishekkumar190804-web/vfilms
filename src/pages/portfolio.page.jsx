@@ -15,7 +15,7 @@ const Portfolio = () => (
       <img
         src={productionServicesImg}
         alt="video sample"
-        className="w-full h-full"
+        className="w-full h-full rounded-sm"
       />
     </Player>
     <div className="absolute bottom-0 right-0 overflow-hidden">
