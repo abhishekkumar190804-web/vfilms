@@ -13,6 +13,16 @@ const Navbar = () => {
     navigate(dir)
   }
 
+  React.useEffect(() => {
+    if (IsActive) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    return () => document.body.classList.remove('overflow-hidden');
+  },[IsActive])
+
   return (
     <header
       className={`

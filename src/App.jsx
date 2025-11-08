@@ -6,6 +6,7 @@ import Teams from './pages/teams.page';
 import About from './pages/about.page';
 import Services from './pages/services';
 import { services } from './config';
+import Portfolio from './pages/portfolio.page';
 
 const App = () => {
   return (
@@ -24,7 +25,7 @@ const App = () => {
         </Route>
         <Route path="teams" element={<Teams />} />
         <Route path="about" element={<About />} />
-        {/* <Route path='portfolio' element={}/> */}
+        <Route path='portfolio' element={<Portfolio/>}/>
         {/* <Route path='contact' element={}/> */}
       </Routes>
     </div>

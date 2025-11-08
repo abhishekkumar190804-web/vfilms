@@ -20,6 +20,10 @@ import artCurationServicesImg from './art-curation-services.png';
 import brandingServicesImg from './branding-services.png';
 import productionServicesImg from './production-services.png';
 import tapeImg from "./tape.png"
+import reelImg from "./reel.png"
+import playButtonImg from "./reel-play.png"
+import reelButtonImg from "./reel-button.png"
+import cameraImg from "./camera.png"
 
 export {
   logo,
@@ -44,4 +48,8 @@ export {
   productionServicesImg,
   brandingServicesImg,
   tapeImg,
+  reelButtonImg,
+  reelImg,
+  playButtonImg,
+  cameraImg
 };

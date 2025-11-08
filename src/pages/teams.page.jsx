@@ -15,7 +15,7 @@ const Teams = () => {
           </p>
         </Note>
       </div>
-      <div className="lg:w-[50vw] lg:h-50vh lg:absolute lg:right-0">
+      <div className="lg:w-[50vw] lg:h-50vh lg:absolute lg:right-0 z-1">
         <Team />
       </div>
       <div className="my-10 w-full flex justify-end lg:justify-start lg:my-0 lg:absolute lg:bottom-0 lg:left-4">

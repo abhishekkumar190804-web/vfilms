@@ -1,2 +1,4 @@
 import { services } from './services.config';
-export { services };
+import { cards as aboutCards } from './about.config';
+
+export { services, aboutCards };

@@ -1,23 +1,10 @@
-import Mountain from '../components/mountain';
+import { circularCompanyImg, sceneImg } from '../assets';
+import HollowCircle from '../components/background/hollow';
 import Note from '../components/ui/note';
-
-const cards = [
-  {
-    head: '85+',
-    body: 'Projects',
-  },
-  {
-    head: '50+',
-    body: 'Happy Clients',
-  },
-  {
-    head: '10+',
-    body: 'Expert Team',
-  },
-];
+import { aboutCards } from '../config';
 
 const About = () => (
-  <section className="flex flex-col lg:flex-row max-h-screen overflow-hidden">
+  <section className="flex flex-col lg:flex-row overflow-hidden">
     {/* LEFT SIDE — Centered text */}
     <div className="flex-1 flex flex-col items-center justify-center text-[#252729] px-6 text-center mt-20 lg:px-12 lg:mt-0">
       <h1 className="font-[Halant] text-3xl mb-4">
@@ -29,7 +16,7 @@ const About = () => (
         creating, and building stories that matter.
       </p>
       <div className="flex mt-10">
-        {cards.map((item, _) => (
+        {aboutCards.map((item, _) => (
           <Note
             key={_}
             clip={false}
@@ -53,7 +40,13 @@ const About = () => (
       </h1>
       <div className="absolute bottom-0 right-0 w-full">
         <div className="translate-y-1/2">
-          <Mountain />
+          <HollowCircle duration='30s' img={circularCompanyImg}>
+            <img
+              src={sceneImg}
+              alt="mountain scene"
+              className="absolute top-1/3 left-1/2 w-[50vw] md:w-[30vw] -translate-x-1/2 -translate-y-1/2 object-contain select-none"
+            />
+          </HollowCircle>
         </div>
       </div>
     </div>
