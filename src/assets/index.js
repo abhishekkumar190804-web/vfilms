@@ -19,11 +19,27 @@ import lineImg from './paint-line.png';
 import artCurationServicesImg from './art-curation-services.png';
 import brandingServicesImg from './branding-services.png';
 import productionServicesImg from './production-services.png';
-import tapeImg from "./tape.png"
-import reelImg from "./reel.png"
-import playButtonImg from "./reel-play.png"
-import reelButtonImg from "./reel-button.png"
-import cameraImg from "./camera.png"
+import tapeImg from './tape.png';
+import reelImg from './reel.png';
+import playButtonImg from './reel-play.png';
+import reelButtonImg from './reel-button.png';
+import cameraImg from './camera.png';
+import exploreArrowImg from './arrows/explore.png';
+import brandingBgIcon1 from './background/branding/branding-1.png';
+import brandingBgIcon2 from './background/branding/branding-2.png';
+import brandingBgIcon3 from './background/branding/branding-3.png';
+import brandingBgIcon4 from './background/branding/branding-4.png';
+import brandingCardImg from './background/branding/card-img.png';
+import productionBgIcon1 from './background/production/production-1.png';
+import productionBgIcon2 from './background/production/production-2.png';
+import productionBgIcon3 from './background/production/production-3.png';
+import productionBgIcon4 from './background/production/production-4.png';
+import productionCardImg from './background/production/card-img.png';
+import artBgIcon1 from './background/art/art-1.png';
+import artBgIcon2 from './background/art/art-2.png';
+import artBgIcon3 from './background/art/art-3.png';
+import artBgIcon4 from './background/art/art-4.png';
+import artCardImg from './background/art/card-img.png';
 
 export {
   logo,
@@ -51,5 +67,21 @@ export {
   reelButtonImg,
   reelImg,
   playButtonImg,
-  cameraImg
+  cameraImg,
+  brandingBgIcon1,
+  brandingBgIcon2,
+  brandingBgIcon3,
+  brandingBgIcon4,
+  brandingCardImg,
+  exploreArrowImg,
+  productionBgIcon1,
+  productionBgIcon2,
+  productionBgIcon3,
+  productionBgIcon4,
+  productionCardImg,
+artBgIcon1,
+artBgIcon2,
+artBgIcon3,
+artBgIcon4,
+  artCardImg,
 };

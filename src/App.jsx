@@ -8,6 +8,7 @@ import Services from './pages/services';
 import { services } from './config';
 import Portfolio from './pages/portfolio.page';
 import Contact from './pages/contact.page';
+import Service from './pages/services/service.page';
 
 const App = () => {
   return (
@@ -20,8 +21,8 @@ const App = () => {
         <Route index element={<Home />} />
         <Route path="/services">
           <Route index element={<Services />} />
-          {services.map(({ url, i }) => (
-            <Route key={i} path={url} element={<Services />} />
+          {services.map(({ url ,data},i) => (
+            <Route key={i} path={url} element={<Service data={data} />} />
           ))}
         </Route>
         <Route path="teams" element={<Teams />} />

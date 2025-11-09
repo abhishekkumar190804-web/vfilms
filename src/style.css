@@ -44,6 +44,23 @@
   }
 }
 
+@keyframes float {
+  0% {
+    filter: drop-shadow( 5px 15px 0px rgba(0, 0, 0, 0.1));
+    transform: translatey(0px);
+  }
+
+  50% {
+    filter: drop-shadow( 25px 15px 0px rgba(0, 0, 0, 0));
+    transform: translatey(-20px);
+  }
+
+  100% {
+    filter: drop-shadow( 5px 15px 0px rgba(0, 0, 0, 0.1));
+    transform: translatey(0px);
+  }
+}
+
 .animate-shake {
   animation: shake 0.5s ease-in-out;
 }
