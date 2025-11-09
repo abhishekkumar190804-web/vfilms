@@ -33,7 +33,7 @@ const Contact = () => {
     () => ({
       name: (val) => val.trim() !== '',
       email: (val) => /\S+@\S+\.\S+/.test(val),
-      phone: (val) => /^\d+$/.test(val),
+      phone: (val) => /^\d{10}$/.test(val),
       message: (val) => val.trim() !== '',
     }),
     [],
@@ -121,9 +121,9 @@ const Contact = () => {
     w-fit select-none
     motion-safe:transition-all motion-reduce:transition-none
     motion-safe:duration-200 motion-reduce:duration-[0ms]
-    ${status === 'success' ? 'bg-green-500 text-white' : ''}
-    ${status === 'error' ? 'bg-red-500 text-white' : ''}
-    ${status === 'loading' ? 'bg-yellow-500 text-white' : ''}
+    ${status === 'success' ? 'bg-green-500!' : ''}
+    ${status === 'error' ? 'bg-red-500!' : ''}
+    ${status === 'loading' ? 'bg-yellow-500!' : ''}
   `;
 
   return (

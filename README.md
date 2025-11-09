@@ -1,16 +1,198 @@
-# React + Vite
+# 🎬 VFILMS - Front-End Intern Test Submission 
+![Deploy](https://github.com/abhishekkumar190804-web/vfilms/actions/workflows/deploy.yml/badge.svg)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+A **single-page responsive web application** built with **React + Vite**, based on the Figma design provided in the EZ Labs Front-End Intern Test.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🧠 Overview
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+This project focuses on **UI implementation**, **responsiveness**, and **API integration**.  
+It recreates the **Home Page** design (as per the provided Figma) and integrates a **Contact Form** that sends user details to the provided backend endpoint.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🧩 Features
+
+✅ Pixel-perfect UI inspired by Figma Design  
+✅ Fully Responsive (Mobile, Tablet, Desktop)  
+✅ Contact Form with Validation (name, email, phone, message)  
+✅ Integrated API via **Axios**  
+✅ Form feedback messages (“Form Submitted”, validation errors, etc.)  
+✅ Clean, Modular, and Maintainable File Structure  
+✅ TailwindCSS-based design system
+
+---
+
+## 🛠️ Tech Stack
+
+| Category    | Technology                               |
+| ----------- | ---------------------------------------- |
+| Framework   | [React 19 (Vite)](https://vitejs.dev/)   |
+| Styling     | [Tailwind CSS](https://tailwindcss.com/) |
+| HTTP Client | [Axios](https://axios-http.com/)         |
+| Linting     | ESLint                                   |
+| Router      | React Router 7                           |
+
+---
+
+## ⚙️ Project Setup
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/abhishekkumar190804-web/vfilms.git
+cd vfilms
+```
+
+### 2️⃣ Install dependencies
+
+```bash
+npm install
+```
+
+### 3️⃣ Run the development server
+
+```bash
+npm run dev
+```
+
+### 4️⃣ Build for production
+
+```bash
+npm run build
+```
+
+### 5️⃣ Preview the build
+
+```bash
+npm run preview
+```
+
+---
+
+## 🔑 Environment Variables
+
+Before running the app, create a `.env` file in the **root directory** of your project:
+
+```bash
+VITE_API_CONTACT=use-your-custom-api-here-or-end-point-mentioned
+```
+
+---
+
+## 🌐 API Integration
+
+**Endpoint:**  
+`POST https://vernanbackend.ezlab.in/api/contact-us/`
+
+**Example Request:**
+
+```json
+{
+  "name": "Test user",
+  "email": "testuser@gmail.com",
+  "phone": "908765498",
+  "message": "This is a message"
+}
+```
+
+**Expected Response (200/201):**
+
+```json
+{
+  "created_at": "2025-10-10T05:27:59.371578Z",
+  "email": "testuser@gmail.com",
+  "id": 49,
+  "message": "This is a message",
+  "name": "Test user",
+  "phone": "908765498",
+  "updated_at": "2025-10-10T05:27:59.371598Z"
+}
+```
+
+**Validation Rules:**
+
+- All fields required
+- Email must be valid
+- Empty submission blocked
+
+---
+
+## 📁 Folder Structure
+
+```
+.
+├── eslint.config.js
+├── index.html
+├── package.json
+├── postman-dump.json
+├── public/
+│   ├── icons and manifest files
+├── src/
+│   ├── assets/ → images, svgs, fonts
+│   ├── components/ → reusable UI components
+│   ├── config/ → configuration files
+│   ├── pages/ → page-level React components
+│   ├── App.jsx → root component
+│   ├── main.jsx → entry point
+│   └── style.css → global styles
+└── vite.config.js
+```
+
+---
+
+## 🧪 Testing
+
+- **Manual Testing:** through browser and Postman (postman-dump.json included)
+- **Responsiveness Testing:** Chrome DevTools (mobile/tablet/desktop viewports)
+
+---
+
+## 🧠 My Thought Process
+
+1. **Setup React + Vite + TailwindCSS** for fast development.
+2. **Componentized layout** — Hero, Navbar, Team, Contact Form, etc.
+3. **Implemented responsive design** using Tailwind utilities and custom CSS.
+4. **Added API integration** with `axios.post()` inside form handler.
+5. **Form validation** done via simple JS checks for empty and email pattern.
+6. **UI feedback messages** and loading states included for UX polish.
+
+---
+
+## 📸 Screenshots
+
+| Desktop View | Mobile View |
+| ------------- | ------------ |
+| ![Desktop Screenshot](./screenshots/desktop-view.png) | ![Mobile Screenshot](./screenshots/mobile-view.png) |
+
+---
+
+## 📦 Postman Collection
+
+The `postman-dump.json` file in the root directory includes:
+
+- Contact form POST request
+- Example response validation
+
+---
+
+## 🪪 License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
+This project is open-sourced under the MIT License © 2025 abhishekkumar190804-web.
+
+---
+
+## 🧑‍💻 Author
+
+**Developer:** Abhishek Kumar  
+**Role:** Front-End Developer (Intern Test Submission)  
+**GitHub:** [https://github.com/abhishekkumar190804-web](https://github.com/abhishekkumar190804-web)
+
+---
+
+> _This project is part of the EZ Labs Front-End Intern Test._  
+> Designed and built with ❤️ using React + TailwindCSS.
