@@ -4,7 +4,7 @@ const Note = ({ children, className = '', clip = true }) => (
   <div
     className={`
       relative 
-      bg-[#f3e1c2]
+      bg-cream
       bg-cover bg-center bg-no-repeat 
       bg-blend-multiply
       shadow-[0px_12px_40px_0px_#00000026]

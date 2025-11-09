@@ -6,7 +6,7 @@ const Teams = () => {
     <section className="relative container flex flex-col items-center mt-20 lg:block">
       <div className="w-full flex justify-center mb-20 lg:absolute lg:-top-6 lg:right-75">
         <Note className="h-fit w-[20rem] -rotate-12 z-10">
-          <p className="font-[Halant] text-[#0F3255] text-[0.9rem] p-5">
+          <p className="font-halant text-navy text-[0.9rem] p-5">
             Some craft films. Some build brands. Some curate art. We bring it
             all together - a collective of storytellers driven by one belief:
             every project deserves to be more than just a message; it should

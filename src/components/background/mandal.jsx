@@ -11,7 +11,7 @@ const Mandal = () => {
       <img
         src={logo}
         alt="vFilms"
-        className="absolute motion-safe:animate-[fadeUp_1s_ease-out_forwards] motion-reduce:animate-none top-1/2 left-1/2 w-1/2 -translate-x-1/2 -translate-y-1/2 object-contain select-none"
+        className="absolute motion-safe:animate-fade-up motion-reduce:animate-none top-1/2 left-1/2 w-1/2 -translate-x-1/2 -translate-y-1/2 object-contain select-none"
       />
     </div>
   );

@@ -9,9 +9,9 @@ const Navbar = () => {
   const isHome = React.useMemo(() => pathname === '/', [pathname]);
   const navigate = useNavigate();
   const handleClick = (dir) => {
-    setIsActive(false)
-    navigate(dir)
-  }
+    setIsActive(false);
+    navigate(dir);
+  };
 
   React.useEffect(() => {
     if (IsActive) {
@@ -21,7 +21,7 @@ const Navbar = () => {
     }
 
     return () => document.body.classList.remove('overflow-hidden');
-  },[IsActive])
+  }, [IsActive]);
 
   return (
     <header
@@ -30,7 +30,7 @@ const Navbar = () => {
         flex items-center ${isHome ? 'justify-end' : 'justify-between'}
         motion-safe:transition-all motion-reduce:transition-none
         motion-safe:duration-600 motion-reduce:duration-[0ms]
-        bg-[#FFFBFB59]
+        bg-soft-white
         ${IsActive && 'md:backdrop-blur-sm'}
       `}
     >
@@ -62,10 +62,10 @@ const Navbar = () => {
         className={`
           absolute right-0 -top-4 p-16 px-6
           flex flex-col-reverse gap-6 items-center justify-end
-          font-[Instrument_Sans]
+          font-instrument-sans
           h-screen w-full
           transition-transform duration-500
-          backdrop-blur-sm bg-[#FFFBFB59]
+          backdrop-blur-sm bg-soft-white
 
           md:bg-transparent
           md:flex-row md:py-0 md:top-auto md:w-auto md:h-auto
@@ -99,7 +99,10 @@ const Navbar = () => {
         </li>
 
         <li>
-          <Button className="flex gap-2 items-center" onClick={()=>handleClick('/contact')}>
+          <Button
+            className="flex gap-2 items-center"
+            onClick={() => handleClick('/contact')}
+          >
             Let’s Talk
             <img src={mailIcon} alt="mailIcon" className="w-5 h-4" />
           </Button>

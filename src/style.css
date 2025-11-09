@@ -1,9 +1,33 @@
 @import "./assets/fonts/fonts.css";
 @import "tailwindcss";
 
+:root {
+  --primary: #F15D2B;
+}
+
+@theme {
+
+  --font-island-moments: "Island Moments";
+  --font-halant: "Halant";
+  --font-instrument-sans: "Instrument Sans";
+
+  --color-primary: #F15D2B;
+  --color-secondary: #252729;
+  --color-navy: #0F3255;
+  --color-placeholder: #757575;
+  --color-soft-white: #FFFBFB59;
+  --color-navy-dark: #103255;
+  --color-charcoal: #3B4046;
+  --color-cream: #F3E1C2;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-shake: shake 0.5s ease-in-out;
+  --animate-fade-up: fadeUp 1s ease-out forwards;
+}
+
 ::selection {
-  background: #F15D2B;
-  color: #fff;
+  background: var(--primary);
+  color: white;
 }
 
 @keyframes fadeUp {
@@ -46,21 +70,17 @@
 
 @keyframes float {
   0% {
-    filter: drop-shadow( 5px 15px 0px rgba(0, 0, 0, 0.1));
+    filter: drop-shadow(5px 15px 0px rgba(0, 0, 0, 0.1));
     transform: translatey(0px);
   }
 
   50% {
-    filter: drop-shadow( 25px 15px 0px rgba(0, 0, 0, 0));
+    filter: drop-shadow(25px 15px 0px rgba(0, 0, 0, 0));
     transform: translatey(-20px);
   }
 
   100% {
-    filter: drop-shadow( 5px 15px 0px rgba(0, 0, 0, 0.1));
+    filter: drop-shadow(5px 15px 0px rgba(0, 0, 0, 0.1));
     transform: translatey(0px);
   }
-}
-
-.animate-shake {
-  animation: shake 0.5s ease-in-out;
 }

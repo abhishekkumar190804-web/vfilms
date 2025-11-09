@@ -12,17 +12,17 @@ export const services = [
     img: productionServicesImg,
     title: 'Film Production',
     rotate: 'rotate-12',
-    tape: '-top-15 -left-20 -rotate-10 md:-top-10 md:-left-15',
+    tape: '-top-15 -left-20 -rotate-10 md:-top-10 md:-left-15 lg:-top-15 2xl:-top-20 2xl:-left-20',
     url: '/services/film-production',
-    data:productionServiceData
+    data: productionServiceData,
   },
   {
     img: brandingServicesImg,
     title: 'Branding',
     rotate: 'rotate-0 z-[2]',
-    tape: '-top-16 md:-top-12 lg:-top-16',
+    tape: '-top-16 md:-top-12 lg:-top-16 2xl:-top-25',
     url: '/services/branding',
-    data:brandingServiceData
+    data: brandingServiceData,
   },
   {
     img: artCurationServicesImg,
@@ -30,6 +30,6 @@ export const services = [
     rotate: '-rotate-12 -translate-x-20 md:translate-x-0',
     tape: '-top-18 scale-[-1] left-20 rotate-45 md:-top-8 md:left-16 lg:-top-15 xl:left-22',
     url: '/services/art-curation',
-    data:artServiceData
+    data: artServiceData,
   },
 ];

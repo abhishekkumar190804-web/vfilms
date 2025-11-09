@@ -18,20 +18,26 @@ const Contact = () => {
   const [status, setStatus] = React.useState('idle');
   const [errors, setErrors] = React.useState({}); // store per-field errors
 
-  const inputRefs = {
-    name: React.useRef(),
-    email: React.useRef(),
-    phone: React.useRef(),
-    message: React.useRef(),
-  };
+  const inputRefs = React.useMemo(
+    () => ({
+      name: React.createRef(),
+      email: React.createRef(),
+      phone: React.createRef(),
+      message: React.createRef(),
+    }),
+    [],
+  );
 
   // Validation rules
-  const validators = {
-    name: (val) => val.trim() !== '',
-    email: (val) => /\S+@\S+\.\S+/.test(val),
-    phone: (val) => /^\d+$/.test(val),
-    message: (val) => val.trim() !== '',
-  };
+  const validators = React.useMemo(
+    () => ({
+      name: (val) => val.trim() !== '',
+      email: (val) => /\S+@\S+\.\S+/.test(val),
+      phone: (val) => /^\d+$/.test(val),
+      message: (val) => val.trim() !== '',
+    }),
+    [],
+  );
 
   // Validate single field
   const validateField = React.useCallback(
@@ -49,7 +55,7 @@ const Contact = () => {
 
       return isValid;
     },
-    [formData],
+    [formData, validators, inputRefs],
   );
 
   // Validate all fields on submit
@@ -86,13 +92,11 @@ const Contact = () => {
 
     setStatus('loading');
     try {
-      await axios.post(
-        API_CONTACT,
-        formData,
-      );
+      await axios.post(API_CONTACT, formData);
       setStatus('success');
       setFormData({ name: '', email: '', phone: '', message: '' });
       setErrors({});
+      // eslint-disable-next-line no-unused-vars
     } catch (err) {
       setStatus('error');
     } finally {
@@ -123,7 +127,7 @@ const Contact = () => {
   `;
 
   return (
-    <section className="relative w-screen font-[Instrument_Sans] flex justify-center flex-col overflow-hidden lg:flex-row">
+    <section className="relative w-screen font-instrument-sans flex justify-center flex-col overflow-hidden lg:flex-row">
       <div className="flex-1 flex justify-center items-center z-2 mt-30 lg:mt-0">
         <p className="w-[80%] md:w-[60%]">
           Whether you have an idea, a question, or simply want to explore how V
@@ -134,13 +138,13 @@ const Contact = () => {
         </p>
       </div>
 
-      <div className="flex-1 flex items-center justify-center lg:justify-start text-[#252729] relative z-2 my-10 lg:mb-0">
+      <div className="flex-1 flex items-center justify-center lg:justify-start text-secondary relative z-2 my-10 lg:mb-0">
         <form
           onSubmit={handleSubmit}
           className="grid gap-20 lg:gap-10 text-center w-[80%] md:w-[60%]"
         >
           <div className="grid gap-2">
-            <h1 className="text-4xl md:3xl font-[Halant]">Join the Story</h1>
+            <h1 className="text-4xl md:3xl font-halant">Join the Story</h1>
             <p className="text-base">
               Ready to bring your vision to life? Let’s talk.
             </p>
@@ -167,7 +171,7 @@ const Contact = () => {
             </Button>
           </div>
 
-          <div className="font-[Halant] font-bold text-[#F15D2B] rounded-full backdrop-blur-xs bg-[#FFFBFB59]">
+          <div className="font-halant font-bold text-primary rounded-full backdrop-blur-xs bg-soft-white">
             <p className="inline pr-2 border-r">vernita@varnanfilms.co.in</p>
             <p className="inline pl-2">+91 98736 84567</p>
           </div>

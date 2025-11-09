@@ -5,7 +5,7 @@ const Button = ({ children, className, variant, ...props }) => {
     case 'outline':
       return (
         <button
-          className={`border-2 border-[#F15D2B] text-[#F15D2B] bg-transparent ${baseClasses} ${className}`.trim()}
+          className={`border-2 border-primary text-primary bg-transparent ${baseClasses} ${className}`.trim()}
           {...props}
         >
           {children}
@@ -15,7 +15,7 @@ const Button = ({ children, className, variant, ...props }) => {
     default:
       return (
         <button
-          className={`bg-[#F15D2B] text-[#FFFFFF] shadow-[0_4px_12px_0_#00000033] ${baseClasses} ${className}`.trim()}
+          className={`bg-primary text-white shadow-[0_4px_12px_0_#00000033] ${baseClasses} ${className}`.trim()}
           {...props}
         >
           {children}

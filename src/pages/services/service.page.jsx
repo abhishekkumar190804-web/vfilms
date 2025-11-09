@@ -1,35 +1,34 @@
-import {
-  brandingBgIcon1,
-  brandingCardImg,
-  exploreArrowImg,
-  lineImg,
-} from '../../assets';
+import { exploreArrowImg, lineImg } from '../../assets';
 import Card from '../../components/ui/card';
 import Button from '../../components/ui/button';
 import { useNavigate } from 'react-router';
 
-const Service = ({data}) => {
+const Service = ({ data }) => {
   const navigate = useNavigate();
   return (
-    <section className="relative w-full flex flex-col font-[Instrument_Sans] overflow-x-hidden">
+    <section className="relative w-full flex flex-col font-instrument-sans overflow-x-hidden">
       {data.icons.map(({ src, className }, i) => (
         <img
           key={i}
           src={src}
-          className={`motion-safe:animate-[float_6s_ease-in-out_infinite] motion-reduce:animate-none ${className}`.trim()}
+          className={`motion-safe:animate-float motion-reduce:animate-none ${className}`.trim()}
           alt={`icon-${i}`}
         />
       ))}
 
       <h1
-        className={`font-[Halant] w-full text-[#252729] text-center mt-25 lg:mt-20 text-extrabold self-center ${data.heading.className}`}
+        className={`font-halant w-full text-secondary text-center mt-25 lg:mt-20 text-extrabold self-center ${data.heading.className}`}
       >
         <Button
           variant="outline"
-          className="py-1! hover:rotate-1 active:rotate-3 m-2"
+          className="py-1! mx-2
+           hover:bg-primary/10 hover:rotate-10 
+          active:bg-primary/15 active:rotate-30
+          motion-safe:duration-100
+          motion-reduce:duration-[0ms]"
           onClick={() => navigate('/services')}
         >
-          <span className="inline-block transform scale-350 font-[Island_Moments]">
+          <span className="inline-block transform scale-350 font-island-moments">
             &lt;
           </span>
         </Button>
@@ -45,11 +44,11 @@ const Service = ({data}) => {
               src={data.card.img}
               alt={data.card.title}
             />
-            <p className="text-center font-[Halant] mt-3">{data.card.title}</p>
+            <p className="text-center font-halant mt-3">{data.card.title}</p>
           </Card>
         </div>
         <div className="relative flex-1 flex flex-col items-center lg:items-start">
-          <article className="w-fit p-3 rounded-md backdrop-blur-sm bg-[#F15D2B]/5">
+          <article className="w-fit p-3 rounded-md backdrop-blur-sm bg-primary/5">
             {data.body.description.map((desc, i) => (
               <h3 key={i} className="w-full lg:w-[25vw]">
                 {desc}
@@ -63,7 +62,7 @@ const Service = ({data}) => {
             ))}
           </article>
           <div className="absolute -bottom-30 group lg:bottom-0 z-2">
-            <button className="cursor-pointer backdrop-blur-md rounded-full group lg:backdrop-blur-none">
+            <button className="cursor-pointer backdrop-blur-md rounded-full group border border-primary p-3 lg:backdrop-blur-none md:border-none">
               <h3 className="text-2xl">Explore</h3>
               <img
                 src={exploreArrowImg}
