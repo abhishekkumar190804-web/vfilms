@@ -1,10 +1,6 @@
 @import "./assets/fonts/fonts.css";
 @import "tailwindcss";
 
-:root {
-  --primary: #F15D2B;
-}
-
 @theme {
 
   --font-island-moments: "Island Moments";
@@ -23,13 +19,15 @@
   --animate-float: float 6s ease-in-out infinite;
   --animate-shake: shake 0.5s ease-in-out;
   --animate-fade-up: fadeUp 1s ease-out forwards;
+  --animate-swing: swing 4s ease-in-out infinite;
 }
 
 ::selection {
-  background: var(--primary);
-  color: white;
+  @apply bg-primary text-white
 }
-
+main{
+  @apply bg-center bg-cover bg-blend-multiply min-h-screen flex justify-center
+}
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -43,33 +41,27 @@
 }
 
 @keyframes shake {
-  0% {
+
+  0%,
+  100% {
     transform: translateX(0);
   }
 
-  20% {
-    transform: translateX(-8px);
-  }
-
-  40% {
-    transform: translateX(8px);
-  }
-
+  20%,
   60% {
     transform: translateX(-8px);
   }
 
+  40%,
   80% {
     transform: translateX(8px);
-  }
-
-  100% {
-    transform: translateX(0);
   }
 }
 
 @keyframes float {
-  0% {
+
+  0%,
+  100% {
     filter: drop-shadow(5px 15px 0px rgba(0, 0, 0, 0.1));
     transform: translatey(0px);
   }
@@ -78,9 +70,18 @@
     filter: drop-shadow(25px 15px 0px rgba(0, 0, 0, 0));
     transform: translatey(-20px);
   }
+}
 
+@keyframes swing {
+
+  0%,
+  10%,
   100% {
-    filter: drop-shadow(5px 15px 0px rgba(0, 0, 0, 0.1));
-    transform: translatey(0px);
+    transform: rotate(-10deg);
+  }
+
+  50%,
+  60% {
+    transform: rotate(10deg);
   }
 }

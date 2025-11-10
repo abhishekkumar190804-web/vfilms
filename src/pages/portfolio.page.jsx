@@ -7,7 +7,7 @@ const Portfolio = () => (
     <img
       src={cameraImg}
       alt="camera"
-      className="absolute h-[50vw] left-1/10 top-1/8 lg:top-1/4 lg:h-[25vw] lg:left-1/12"
+      className="absolute h-[50vw] left-1/10 top-1/8 lg:top-1/4 lg:h-[25vw] lg:left-1/12 animate-swing"
     />
     <h1 className="font-halant text-4xl z-2">The Highlight Reel</h1>
     <p className="font-instrument-sans">Watch the magic we’ve captured.</p>

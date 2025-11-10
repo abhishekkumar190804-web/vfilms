@@ -14,10 +14,7 @@ const Service = React.lazy(() => import('./pages/services/service.page'));
 
 const App = () => {
   return (
-    <div
-      style={{ backgroundImage: `url(${bgImg})` }}
-      className="bg-center bg-cover bg-blend-multiply min-h-screen flex justify-center"
-    >
+    <main style={{ backgroundImage: `url(${bgImg})` }}>
       <Navbar />
       <React.Suspense fallback={<RouteLoad />} />
       <Routes path="/">
@@ -35,7 +32,7 @@ const App = () => {
         <Route path="contact" element={<Contact />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-    </div>
+    </main>
   );
 };
 

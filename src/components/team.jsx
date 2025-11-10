@@ -51,7 +51,7 @@ const Team = () => {
         />
       </div>
       <div className="text-center mt-15 md:mt-25">
-        <p className="font-halant text-[3vw] text-secondary md:text-[2vw]">
+        <p className="relative font-halant text-[3vw] text-secondary md:text-[2vw] z-2">
           Take a closer look at the stories V bring to life.
         </p>
         <Button
